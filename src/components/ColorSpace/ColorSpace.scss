@@ -1,0 +1,36 @@
+.mainLayout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+  .colorsSpace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+  }
+
+  .inputSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .colorRange {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 1rem;
+
+      label {
+        font-weight: bold;
+      }
+
+      input {
+        width: 150px;
+      }
+    }
+  }
+}

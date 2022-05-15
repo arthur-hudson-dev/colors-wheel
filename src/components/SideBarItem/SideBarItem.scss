@@ -1,0 +1,33 @@
+.SideBarItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 3rem;
+  max-width: 160px;
+  position: relative;
+
+  .afterItem {
+    display: inline-block;
+    position: absolute;
+    right: -2rem;
+    width: 1.5rem;
+    height: 3rem;
+    background-color: #000;
+    border-radius: 0 100px 100px 0;
+  }
+
+  a {
+    color: #b3b6b7;
+    text-decoration: none;
+    transition: color 0.5s;
+  }
+
+  &:hover {
+    color: #5b2c6f;
+    cursor: pointer;
+
+    a {
+      color: #5b2c6f;
+    }
+  }
+}

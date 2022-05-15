@@ -1,0 +1,28 @@
+.ColorInfo {
+  display: flex;
+  margin: 0.5rem;
+
+  h3 {
+    font-size: 0.8rem;
+    padding-right: 0.5rem;
+    position: relative;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      display: block;
+      width: calc(100% - 0.5rem);
+      height: 0.2rem;
+      border-radius: 5px 5px 0 0;
+    }
+  }
+
+  img {
+    margin-left: auto;
+    padding-left: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
