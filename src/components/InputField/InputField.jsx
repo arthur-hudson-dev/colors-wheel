@@ -22,6 +22,7 @@ export default function InputField(props) {
         placeholder={props.placeHolder ?? "000"}
         value={value}
         onChange={colorHandler}
+        onKeyUp={colorHandler}
       />
     </>
   );

@@ -4,18 +4,21 @@ import ColorInput from "../ColorInput/ColorInput";
 import "./MainSection.scss";
 
 export default function MainSection(props) {
-  const [colorInput, setColorInput] = useState("");
+  const R = Math.floor(Math.random() * 255).toString(16);
+  const G = Math.floor(Math.random() * 255).toString(16);
+  const B = Math.floor(Math.random() * 255).toString(16);
+  const [colorInput, setColorInput] = useState(R + G + B);
 
   const getColor = (color) => {
-    setColorInput("#" + color);
+    setColorInput(color);
   };
 
-  useEffect(() => console.log(colorInput));
+  useEffect(() => console.log(colorInput), [colorInput]);
 
   return (
     <section className="MainSection">
       <ColorInput onChange={getColor} />
-      <ColorShowcase backgroundColor={colorInput} />
+      <ColorShowcase backgroundColor={"#" + colorInput} />
     </section>
   );
 }

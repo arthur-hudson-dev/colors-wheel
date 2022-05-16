@@ -12,7 +12,7 @@ export default function ColorSample(props) {
       />
       <ColorInfo
         title="HEX"
-        value="#FF0000"
+        value={props.backgroundColor}
         afterBackgroundColor={props.backgroundColor}
       />
       <ColorInfo
