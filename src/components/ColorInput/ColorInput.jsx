@@ -3,6 +3,7 @@ import InputField from "../InputField/InputField";
 import "./ColorInput.scss";
 
 export default function ColorInput(props) {
+  const onChange = props.onChange;
   return (
     <div className="ColorInput">
       <InputField
@@ -11,6 +12,7 @@ export default function ColorInput(props) {
         placeHolder="000000"
         maxLength="6"
         maxWidth="6rem"
+        onChange={onChange}
       />
       <div className="rgbInput">
         <InputField label="R" />
