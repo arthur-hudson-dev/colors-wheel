@@ -7,11 +7,17 @@ import "./ColorShowcase.scss";
 export default function ColorShowcase(props) {
   return (
     <div className="ColorShowcase">
+      <ColorSample
+        backgroundColor={props.backgroundColor}
+        borderRadius={"left"}
+      />
       <ColorSample backgroundColor={props.backgroundColor} />
       <ColorSample backgroundColor={props.backgroundColor} />
       <ColorSample backgroundColor={props.backgroundColor} />
-      <ColorSample backgroundColor={props.backgroundColor} />
-      <ColorSample backgroundColor={props.backgroundColor} />
+      <ColorSample
+        backgroundColor={props.backgroundColor}
+        borderRadius={"right"}
+      />
     </div>
   );
 }

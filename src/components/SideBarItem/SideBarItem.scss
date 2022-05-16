@@ -12,7 +12,7 @@
     right: -2rem;
     width: 1.5rem;
     height: 3rem;
-    background-color: #000;
+    background-color: var(--main-color);
     border-radius: 0 100px 100px 0;
   }
 
@@ -23,11 +23,25 @@
   }
 
   &:hover {
-    color: #5b2c6f;
     cursor: pointer;
 
     a {
       color: #5b2c6f;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-right: 2rem;
+    text-align: center;
+
+    .afterItem {
+      position: absolute;
+      left: 0;
+      bottom: calc(0% - 10%);
+      width: 110%;
+      height: 3px;
+      background-color: var(--main-color);
+      border-radius: 200px;
     }
   }
 }

@@ -8,4 +8,11 @@
     list-style-type: none;
     padding-top: 2rem;
   }
+
+  @media screen and (max-width: 900px) {
+    grid-column: 1 / span 12;
+    ul {
+      display: flex;
+    }
+  }
 }

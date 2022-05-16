@@ -1,32 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./SideBarItem.scss";
 
 export default function SideBarItem(props) {
-  const isActive = props.isActive;
-  const [isMouseOver, setIsMouseOver] = useState(false);
-
-  function mouseOverHandler() {
-    setIsMouseOver(true);
-    console.log(isMouseOver);
-  }
-
-  function mouseLeaveHandler() {
-    setIsMouseOver(false);
-    console.log(isMouseOver);
-  }
-
+  const clickHandler = props.onClick;
   return (
     <>
-      <li
-        onMouseOver={() => mouseOverHandler()}
-        onMouseLeave={() => mouseLeaveHandler()}
-        className="SideBarItem"
-      >
-        <a style={{ color: isActive ? "#000" : null }} href="/">
+      <li className="SideBarItem" onClick={clickHandler}>
+        <a
+          style={{
+            color: props.isActive ? "var(--main-color)" : null,
+          }}
+          to={props.path}
+        >
           {props.title}
         </a>
-        {isActive ? <div className="afterItem"></div> : null}
+        {props.isActive ? <div className="afterItem"></div> : null}
       </li>
     </>
   );

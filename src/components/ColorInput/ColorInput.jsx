@@ -8,7 +8,7 @@ export default function ColorInput(props) {
       <InputField
         label="#"
         className="hexField"
-        value="000000"
+        placeHolder="000000"
         maxLength="6"
         maxWidth="6rem"
       />
@@ -22,6 +22,7 @@ export default function ColorInput(props) {
         <InputField label="L" />
         <InputField label="S" />
       </div>
+      <div style={{ color: "gray" }}>Exportar paleta</div>
     </div>
   );
 }

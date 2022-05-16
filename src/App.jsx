@@ -1,4 +1,5 @@
-import "./App.css";
+import React from "react";
+import { Route, BrowserRouter } from "react-router-dom";
 import PageLayout from "./components/PageLayout/PageLayout";
 
 function App() {

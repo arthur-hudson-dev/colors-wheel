@@ -6,7 +6,10 @@ import "./ColorSample.scss";
 export default function ColorSample(props) {
   return (
     <div>
-      <ColorBox backgroundColor={props.backgroundColor} />
+      <ColorBox
+        backgroundColor={props.backgroundColor}
+        borderRadius={props.borderRadius}
+      />
       <ColorInfo
         title="HEX"
         value="#FF0000"
