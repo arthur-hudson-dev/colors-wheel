@@ -32,7 +32,7 @@ export default function InputField(props) {
         maxLength={props.maxLength ?? "3"}
         style={{ maxWidth: props.maxWidth ?? "3rem" }}
         placeholder={props.placeHolder ?? "000"}
-        value={value}
+        value={props.value}
         onChange={colorHandler}
         onKeyUp={colorHandler}
       />

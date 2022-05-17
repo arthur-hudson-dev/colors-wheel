@@ -4,64 +4,55 @@ import "./ColorInput.scss";
 
 export default function ColorInput(props) {
   const getHexColor = props.getHexColor;
-  const getRGBColor = props.getRGBColor;
-  const getHSLColor = props.getHSLColor;
-  const [rColor, setRColor] = useState(0);
-  const [gColor, setGColor] = useState(0);
-  const [bColor, setBColor] = useState(0);
-  const [hColor, setHColor] = useState(0);
-  const [sColor, setSColor] = useState(0);
-  const [lColor, setLColor] = useState(0);
+  const getRColor = props.getRColor;
+  const getGColor = props.getGColor;
+  const getBColor = props.getBColor;
+  const getHColor = props.getHColor;
+  const getSColor = props.getSColor;
+  const getLColor = props.getLColor;
 
-  const getRColor = (color) => {
-    setRColor(color);
-    getRGBColor(rColor + ", " + gColor + ", " + bColor);
-  };
-
-  const getGColor = (color) => {
-    setGColor(color);
-    getRGBColor(rColor + ", " + gColor + ", " + bColor);
-  };
-
-  const getBColor = (color) => {
-    setBColor(color);
-    getRGBColor(rColor + ", " + gColor + ", " + bColor);
-  };
-
-  const getHColor = (color) => {
-    setHColor(color);
-    getHSLColor(hColor + ", " + sColor + ", " + lColor);
-  };
-
-  const getSColor = (color) => {
-    setLColor(color);
-    getHSLColor(hColor + ", " + sColor + ", " + lColor);
-  };
-
-  const getLColor = (color) => {
-    setSColor(color);
-    getHSLColor(hColor + ", " + sColor + ", " + lColor);
-  };
+  useEffect(function () {});
 
   return (
     <div className="ColorInput">
       <InputField
-        label="#"
         className="hexField"
+        label="#"
         placeHolder="000000"
+        value={props.hexColor.toUpperCase()}
         maxLength="6"
         maxWidth="6rem"
         onChange={getHexColor}
       />
       <div className="rgbInput">
-        <InputField className="rgbInput" label="R" onChange={getRColor} />
-        <InputField className="rgbInput" label="G" onChange={getGColor} />
-        <InputField className="rgbInput" label="B" onChange={getBColor} />
+        <InputField
+          className="rgbInput"
+          label="R"
+          value={props.rColor}
+          onChange={getRColor}
+        />
+        <InputField
+          className="rgbInput"
+          label="G"
+          value={props.gColor}
+          onChange={getGColor}
+        />
+        <InputField
+          className="rgbInput"
+          label="B"
+          value={props.bColor}
+          onChange={getBColor}
+        />
       </div>
       <div className="hslInput">
-        <InputField className="hslInput360" label="H" onChange={getHColor} />
-        <InputField label="L" onChange={getLColor} />
-        <InputField label="S" onChange={getSColor} />
+        <InputField
+          className="hslInput360"
+          label="H"
+          value={props.hColor}
+          onChange={getHColor}
+        />
+        <InputField label="S" value={props.sColor} onChange={getSColor} />
+        <InputField label="L" value={props.lColor} onChange={getLColor} />
       </div>
       <div style={{ color: "gray" }}>Exportar paleta</div>
     </div>
