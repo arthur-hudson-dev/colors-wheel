@@ -4,6 +4,7 @@ import ColorInfo from "../ColorInfo/ColorInfo";
 import "./ColorSample.scss";
 
 export default function ColorSample(props) {
+  console.log("Color Sample: " + props.rgbColor + "/ " + props.backgroundColor);
   return (
     <div>
       <ColorBox
@@ -17,12 +18,12 @@ export default function ColorSample(props) {
       />
       <ColorInfo
         title="RGB"
-        value="255, 0, 0"
+        value={props.rgbColor ?? ""}
         afterBackgroundColor={props.backgroundColor}
       />
       <ColorInfo
         title="HSL"
-        value="100, 100%, 50%"
+        value={props.hslColor ?? ""}
         afterBackgroundColor={props.backgroundColor}
       />
     </div>

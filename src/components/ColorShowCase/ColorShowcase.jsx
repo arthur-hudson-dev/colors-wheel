@@ -1,10 +1,11 @@
 import React from "react";
-import ColorBox from "../ColorBox/ColorBox";
-import ColorInfo from "../ColorInfo/ColorInfo";
 import ColorSample from "../ColorSample/ColorSample";
 import "./ColorShowcase.scss";
 
 export default function ColorShowcase(props) {
+  console.log(
+    "Color ShowCase: " + props.rgbColor + "/ " + props.backgroundColor
+  );
   return (
     <div className="ColorShowcase">
       <ColorSample
@@ -12,7 +13,11 @@ export default function ColorShowcase(props) {
         borderRadius={"left"}
       />
       <ColorSample backgroundColor={props.backgroundColor} />
-      <ColorSample backgroundColor={props.backgroundColor} />
+      <ColorSample
+        backgroundColor={props.backgroundColor}
+        rgbColor={props.rgbColor}
+        hslColor={props.hslColor}
+      />
       <ColorSample backgroundColor={props.backgroundColor} />
       <ColorSample
         backgroundColor={props.backgroundColor}

@@ -3,20 +3,32 @@ import "./InputField.scss";
 
 export default function InputField(props) {
   const [value, setValue] = useState("");
+  const toggleChange = props.onChange;
 
   const colorHandler = (event) => {
     setValue((valorValido) =>
       event.target.validity.valid ? event.target.value : valorValido
     );
-    props.onChange(value);
+
+    toggleChange(value);
   };
 
   return (
     <>
       <label>{props.label}</label>
       <input
-        type="text"
-        pattern="[0-9A-Fa-f]*"
+        type={props.className === "hexField" ? "text" : "number"}
+        min={props.className === "hexField" ? null : 0}
+        max={
+          props.className === "hexField"
+            ? null
+            : props.className === "rgbInput"
+            ? 255
+            : props.className === "hslInput360"
+            ? 360
+            : 100
+        }
+        pattern={props.maxLength === "6" ? "[0-9A-Fa-f]*" : "[0-9]*"}
         maxLength={props.maxLength ?? "3"}
         style={{ maxWidth: props.maxWidth ?? "3rem" }}
         placeholder={props.placeHolder ?? "000"}
@@ -27,8 +39,3 @@ export default function InputField(props) {
     </>
   );
 }
-
-/* onChange={(e) =>
-  setValue((value) =>
-    e.target.validity.valid ? e.target.value : value
-  ) */

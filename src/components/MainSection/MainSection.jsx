@@ -4,21 +4,55 @@ import ColorInput from "../ColorInput/ColorInput";
 import "./MainSection.scss";
 
 export default function MainSection(props) {
-  const R = Math.floor(Math.random() * 255).toString(16);
-  const G = Math.floor(Math.random() * 255).toString(16);
-  const B = Math.floor(Math.random() * 255).toString(16);
-  const [colorInput, setColorInput] = useState(R + G + B);
+  let R = Math.floor(Math.random() * 255);
+  let G = Math.floor(Math.random() * 255);
+  let B = Math.floor(Math.random() * 255);
+  let RHex = R.toString(16);
+  let GHex = G.toString(16);
+  let BHex = B.toString(16);
 
-  const getColor = (color) => {
-    setColorInput(color);
+  if (RHex.length <= 1) {
+    RHex = "0" + RHex;
+  }
+  if (GHex.length <= 1) {
+    GHex = "0" + GHex;
+  }
+  if (BHex.length <= 1) {
+    BHex = "0" + BHex;
+  }
+
+  const [hexColor, setHexColor] = useState(RHex + GHex + BHex);
+  const [rgbColor, setRGBColor] = useState(R + ", " + G + ", " + B);
+  const [hslColor, setHSLColor] = useState("");
+
+  const getHexColor = (color) => {
+    setHexColor(color);
   };
 
-  useEffect(() => console.log(colorInput), [colorInput]);
+  const getRGBColor = (color) => {
+    setRGBColor(color);
+  };
+
+  const getHSLColor = (color) => {
+    setHSLColor(color);
+  };
+
+  /* useEffect(() => console.log(hexColor), [hexColor]); */
+  /* useEffect(() => console.log(rgbColor), [rgbColor]); */
+  console.log("Main Section: " + rgbColor + "/ " + hexColor);
 
   return (
     <section className="MainSection">
-      <ColorInput onChange={getColor} />
-      <ColorShowcase backgroundColor={"#" + colorInput} />
+      <ColorInput
+        getHexColor={getHexColor}
+        getRGBColor={getRGBColor}
+        getHSLColor={getHSLColor}
+      />
+      <ColorShowcase
+        backgroundColor={"#" + hexColor}
+        rgbColor={rgbColor}
+        hslColor={hslColor}
+      />
     </section>
   );
 }
